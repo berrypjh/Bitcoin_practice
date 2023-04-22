@@ -93,9 +93,8 @@ const addBlock = (newBlock) => {
 
 module.exports = {
   createHash,
+  getBlocks,
+  getVersion,
+  nextBlock,
+  addBlock,
 };
-
-const block = nextBlock(["transaction1"]);
-addBlock(block);
-
-console.log(Blocks);
