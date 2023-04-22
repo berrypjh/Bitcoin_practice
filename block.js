@@ -80,15 +80,22 @@ const nextBlock = (bodyData) => {
   return new Block(header, bodyData);
 };
 
-const addBlock = (bodyData) => {
-  const newBlock = nextBlock(bodyData);
-  Blocks.push(newBlock);
+const addBlock = (newBlock) => {
+  const { isValidNewBlock } = require("./checkValidBlock");
+
+  if (isValidNewBlock(newBlock, getLastBlock())) {
+    Blocks.push(newBlock);
+    return true;
+  }
+
+  return false;
 };
 
-addBlock(["transaction1"]);
-addBlock(["transaction2"]);
-addBlock(["transaction3"]);
-addBlock(["transaction4"]);
-addBlock(["transaction5"]);
+module.exports = {
+  createHash,
+};
+
+const block = nextBlock(["transaction1"]);
+addBlock(block);
 
 console.log(Blocks);
