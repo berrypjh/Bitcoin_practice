@@ -7,7 +7,7 @@ class Block {
     this.header = header;
     this.body = body;
   }
-};
+}
 
 class BlockHeader {
   constructor(version, index, previousHash, timestamp, merkleRoot, bit, nonce) {
@@ -19,7 +19,7 @@ class BlockHeader {
     this.bit = bit;
     this.nonce = nonce;
   }
-};
+}
 
 const getVersion = () => {
   const package = fs.readFileSync("package.json");
